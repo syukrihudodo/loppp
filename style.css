@@ -1,0 +1,139 @@
+/* Mengatur background dan memusatkan posisi */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #1a1a1a;
+    overflow: hidden;
+}
+
+/* =========================================
+   HATI UTAMA & GELOMBANG ELEGAN
+   ========================================= */
+.heart-wrapper {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Efek gelombang elegan memancar dari belakang */
+.heart-wrapper::before,
+.heart-wrapper::after {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    
+    /* Warna gradasi elegan (Putih ke Pink Transparan) */
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(255, 56, 96, 0.5));
+    
+    clip-path: path('M100,190 C40,130 0,90 0,50 C0,20 20,0 50,0 C75,0 90,15 100,30 C110,15 125,0 150,0 C180,0 200,20 200,50 C200,90 160,130 100,190');
+    
+    z-index: 0; 
+    /* Animasi lebih halus (ease-out) */
+    animation: elegantWave 1.2s infinite cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.heart-wrapper::after {
+    animation-delay: 0.6s;
+}
+
+/* Animasi Gelombang Utama */
+@keyframes elegantWave {
+    0% { transform: scale(1); opacity: 0.8; }
+    100% { transform: scale(1.6); opacity: 0; }
+}
+
+/* Foto Hati Utama */
+.heart {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    
+    /* FOTO KAMU */
+    background-image: url('malupp.jpg'); 
+    background-size: cover; 
+    background-position: center; 
+
+    clip-path: path('M100,190 C40,130 0,90 0,50 C0,20 20,0 50,0 C75,0 90,15 100,30 C110,15 125,0 150,0 C180,0 200,20 200,50 C200,90 160,130 100,190');
+
+    animation: beatPhoto 1.2s infinite; 
+    cursor: pointer;
+    
+    /* Glow effect pada foto utama */
+    filter: drop-shadow(0 0 20px rgba(255, 56, 96, 0.6));
+    z-index: 1; 
+}
+
+@keyframes beatPhoto {
+    0% { transform: scale(1); }
+    14% { transform: scale(1.1); }
+    28% { transform: scale(1); }
+    42% { transform: scale(1.1); }
+    70% { transform: scale(1); }
+}
+
+/* =========================================
+   HATI KECIL & GELOMBANGNYA (Dari Klik JS)
+   ========================================= */
+
+/* Wadah untuk hati kecil yang melayang */
+.mini-heart-wrapper {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    transform-origin: center;
+    animation: floatUpPhoto 2.5s ease-out forwards;
+    pointer-events: none;
+    z-index: 10;
+}
+
+/* Gelombang elegan untuk Hati Kecil */
+.mini-heart-wrapper::before,
+.mini-heart-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(255, 56, 96, 0.6));
+    clip-path: path('M12.5,23.75 C5,16.25 0,11.25 0,6.25 C0,2.5 2.5,0 6.25,0 C9.375,0 11.25,1.875 12.5,3.75 C13.75,1.875 15.625,0 18.75,0 C22.5,0 25,2.5 25,6.25 C25,11.25 20,16.25 12.5,23.75');
+    z-index: 0;
+    animation: miniWave 1.2s infinite cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.mini-heart-wrapper::after {
+    animation-delay: 0.6s;
+}
+
+@keyframes miniWave {
+    0% { transform: scale(1); opacity: 0.8; }
+    100% { transform: scale(2); opacity: 0; }
+}
+
+/* Foto Hati Kecil */
+.mini-heart {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    
+    /* FOTO KAMU */
+    background-image: url('malupp.jpg');
+    background-size: cover;
+    background-position: center;
+
+    clip-path: path('M12.5,23.75 C5,16.25 0,11.25 0,6.25 C0,2.5 2.5,0 6.25,0 C9.375,0 11.25,1.875 12.5,3.75 C13.75,1.875 15.625,0 18.75,0 C22.5,0 25,2.5 25,6.25 C25,11.25 20,16.25 12.5,23.75');
+    z-index: 1;
+}
+
+/* Animasi melayang Hati Kecil */
+@keyframes floatUpPhoto {
+    0% { transform: scale(1) rotate(0deg) translateY(0); opacity: 1; }
+    100% { transform: scale(1.4) rotate(15deg) translateY(-120px); opacity: 0; }
+}
