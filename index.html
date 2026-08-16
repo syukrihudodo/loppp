@@ -3,15 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elegant Photo Heart Animation</title>
+    <title>Premium Interactive Heart</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     
-    <!-- Wadah untuk memunculkan efek gelombang (wave) elegan -->
-    <div class="heart-wrapper">
-        <div class="heart" id="mainHeart"></div>
-    </div>
+    <!-- Aplikasi Utama -->
+    <main class="app-container">
+        <!-- Hati Utama (Komponen UI) -->
+        <div class="heart-hero" role="button" aria-label="Animasi Detak Jantung" tabindex="0">
+            <div class="heart-hero__wave"></div>
+            <div class="heart-hero__wave heart-hero__wave--delay"></div>
+            <div class="heart-hero__core"></div>
+        </div>
+    </main>
 
     <script src="script.js"></script>
 </body>
